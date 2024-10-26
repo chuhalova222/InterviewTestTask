@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '8.10'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: "io.freefair.lombok"
+    repositories {
+        mavenCentral()
+    }
+}
+
+
+subprojects {
+    dependencies {
+        implementation 'org.testng:testng:7.7.1'
+        implementation 'ch.qos.logback:logback-classic:1.4.14'
+        implementation 'org.assertj:assertj-core:3.26.3'
+        implementation 'com.google.code.gson:gson:2.11.0'
+    }
+}
+
+
+test {
+    useJUnitPlatform()
+}
